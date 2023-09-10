@@ -25,7 +25,7 @@ const cartDataControl = {
     },
     remove(idls) {
         const cartData = this.get();
-        const index = cart.findIndex((item) => item.idls === idls);
+        const index = cartData.findIndex((item) => item.idls === idls);
         if (index !== -1) {
             cartData.splice(index, 1);
         }
@@ -330,6 +330,7 @@ const renderCart = () => {
     orderListData.forEach((item) => {
         orderList.append(createCartItem(item));
     });
+    console.log('orderListData: ', orderListData);
 
     orderTotalPrice.textContent =
         `${orderListData.reduce(
